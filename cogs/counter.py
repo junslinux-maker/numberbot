@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 from config.settings import (
-    CHANNEL_ID,
+    get_channel_id,
     START_NUMBER,
     END_NUMBER,
     IMAGE_PATH
@@ -20,7 +20,7 @@ class Counter(commands.Cog):
             return
 
         # 특정 채널만 허용
-        if message.channel.id != CHANNEL_ID:
+        if message.channel.id != get_channel_id:
             return
 
         text = message.content.strip()

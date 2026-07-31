@@ -1,19 +1,32 @@
 import os
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# Discord Bot Token
 TOKEN = os.getenv("TOKEN")
 
-# 허용할 채널 ID
-CHANNEL_ID = int(os.getenv("CHANNEL_ID", "0"))
-
-# 6000일 때 보낼 이미지
 IMAGE_PATH = "assets/image.png"
 
-# 시작 번호
 START_NUMBER = 5098
-
-# 마지막 번호
 END_NUMBER = 6000
+
+CHANNEL_FILE = "config/channel.json"
+
+
+def get_channel_id():
+    try:
+        with open(CHANNEL_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return int(data.get("channel_id", 0))
+    except Exception:
+        return 0
+
+
+def set_channel_id(channel_id: int):
+    with open(CHANNEL_FILE, "w", encoding="utf-8") as f:
+        json.dump(
+            {"channel_id": channel_id},
+            f,
+            indent=4
+        )
