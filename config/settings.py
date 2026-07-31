@@ -8,8 +8,8 @@ TOKEN = os.getenv("TOKEN")
 
 IMAGE_PATH = "assets/image.png"
 
-START_NUMBER = 5098
-END_NUMBER = 6000
+# 이미지 전송 기준 숫자
+IMAGE_TRIGGER = 6000
 
 CHANNEL_FILE = "config/channel.json"
 
