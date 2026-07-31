@@ -25,6 +25,7 @@ async def on_ready():
 async def load_extensions():
     await bot.load_extension("cogs.counter")
     await bot.load_extension("cogs.admin")
+    await bot.load_extension("cogs.reaction")
 
 async def main():
     async with bot:
